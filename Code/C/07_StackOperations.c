@@ -44,6 +44,29 @@ int pop(struct stack *stack){
     return value;
 }
 
+int peek(struct stack *stack, int peek_index){
+    if(stack->top - peek_index + 1 < 0){
+        printf("Invalid peek index\n");
+        return INT_MIN;
+    }
+    return stack->arr[stack->top - peek_index + 1];
+}
+
+/* Story About peek
+----------------------------------------------------------------
+peek_index or i            top values       array_index
+----------------------------------------------------------------
+    1              |20 |      4               4
+    2              |100|      3               3
+    3              | 3 |      2               2
+    4              | 4 |      1               1
+    5              |_5_|      0               0
+----------------------------------------------------------------
+So array index in terms of peek and top values is represented as
+top - i + 1
+
+*/
+
 void display_stack(struct stack *stack){
     int i=0;
     while(i<=stack->top){
@@ -65,12 +88,36 @@ int main()
     push(st,4);
     push(st,5);
     display_stack(st);
+
+    printf("\n\n");
+
+    printf("Popped out %d\n", pop(st));
+    printf("Popped out %d\n", pop(st));
+
     printf("\n");
-    printf("Popped out %d\n", pop(st));
-    printf("Popped out %d\n", pop(st));
+
     push(st,50);
     push(st,60);
     display_stack(st);
 
+    printf("\n\n");
+
+    printf("Peeking the Stack\n");
+    int peek_index = 2;
+    printf("Peeked at peek index %d and the value came as %d\n", peek_index, peek(st, peek_index));
+    
+    printf("\n");
+
+    printf("Peeking the Stack\n");
+    peek_index = 100;
+    printf("Peeked at peek index %d and the value came as %d\n", peek_index, peek(st, peek_index));
+
+    printf("\n");
+
+    printf("Peeking all the values\n\n");
+
+    for(int i = 1; i <= st->top + 1;i++){
+        printf("Value at position %d is %d\n", i, peek(st, i));
+    }
     return 0;
 }
