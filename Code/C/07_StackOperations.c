@@ -25,6 +25,7 @@ bool isFull(struct stack *stack){
 
 bool push(struct stack *stack, int element){
     if(isFull(stack)){
+        printf("Stack Overflow, Cannot push %d\n", element);
         return false;
     }
     stack->top ++;
@@ -35,6 +36,7 @@ bool push(struct stack *stack, int element){
 
 int pop(struct stack *stack){
     if(isEmpty(stack)){
+        printf("Stack Underflow\n");
         return INT_MIN;
     }
     int value = stack->arr[stack->top];
@@ -61,10 +63,13 @@ int main()
     push(st,2);
     push(st,3);
     push(st,4);
-    pop(st);
-    pop(st);
     push(st,5);
-    push(st,6);
+    display_stack(st);
+    printf("\n");
+    printf("Popped out %d\n", pop(st));
+    printf("Popped out %d\n", pop(st));
+    push(st,50);
+    push(st,60);
     display_stack(st);
 
     return 0;
