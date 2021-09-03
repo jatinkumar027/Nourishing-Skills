@@ -1,7 +1,14 @@
+// 1. The left side of Linked List will be used for push and pop operations that is the head side of the linked list
+// 2. Head is now the top of Stack
+// 3. Stack Empty condition (top==NULL)
+// 4. Stack Full when heap memory is exhausted that is when returned pointer is NULL [ptr==NULL]
+// 5. We can always set a custom size
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
 #include<limits.h>
+
 
 struct StackLinkedList{
     int data;
