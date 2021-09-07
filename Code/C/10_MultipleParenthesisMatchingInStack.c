@@ -34,7 +34,7 @@ void push(struct stack *stack, char element){
     stack->arr[stack->top] = element;
 }
 
-char pop(struct stack *stack){
+char pop(struct stack * stack){
     if(isEmpty(stack)){
         printf("Stack Underflow!\n");
         return -1;
@@ -44,19 +44,32 @@ char pop(struct stack *stack){
     return val;
 }
 
+bool isMatch(char a, char b) {
+    if(a=='(' && b==')')
+        return true;
+    if(a=='[' && b==']')
+        return true;
+    if(a=='{' && b=='}')
+        return true;
+    return false;
+}
+
 char * parenthesis_match(char * exp){
     struct stack *st = (struct stack * ) malloc(sizeof(struct stack));
     st->top = -1;
     st->size = sizeof(exp);
     st->arr = (char *) malloc(sizeof(st->size * sizeof(char)));
+    char popped;
     
     for(int i = 0; exp[i] != '\0'; i++){
-        if(exp[i] == '(')
-            push(st, '(');
-        else if(exp[i] == ')'){
+        if(exp[i] == '(' || exp[i] == '[' || exp[i] == '{')
+            push(st, exp[i]);
+        else if(exp[i] == ')' || exp[i] == ']' || exp[i] == '}'){
             if(isEmpty(st))
-            return "Unbalanced";
-            pop(st);
+                return "Unbalanced";
+            popped = pop(st);
+            if(!isMatch(popped, exp[i]))
+                return "Unbalanced";
         }
     }
 
