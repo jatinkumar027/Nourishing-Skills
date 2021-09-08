@@ -1,4 +1,7 @@
 // Program for parenthesis matching that is the string is balance or not
+// Condition for Balanced Expression
+//       - While popping Stack should not Underflow - if it happens -> Unbalanced
+//       - At End of Expression, Stack should be Empty - if it not happens -> Unbalanced
 
 #include<stdio.h>
 #include<stdlib.h>

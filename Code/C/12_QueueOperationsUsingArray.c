@@ -1,3 +1,5 @@
+// FIFO
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
@@ -30,6 +32,7 @@ bool enqueue(struct queue* queue, int element){
         return false;
     }
     queue->rear ++;
+    queue->size ++;
     queue->arr[queue->rear] = element;
     printf("Enqued element: %d\n", element);
     return true;
