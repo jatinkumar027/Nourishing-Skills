@@ -1,81 +1,41 @@
-#include<stdio.h>
-#include<stdlib.h>
- 
-struct queue
+// C program for implementation of Bubble sort
+#include <stdio.h>
+
+void swap(int *xp, int *yp)
 {
-    int size;
-    int f;
-    int r;
-    int* arr;
-};
- 
- 
-int isEmpty(struct queue *q){
-    if(q->r==q->f){
-        return 1;
-    }
-    return 0;
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
- 
-int isFull(struct queue *q){
-    if(q->r==q->size-1){
-        return 1;
-    }
-    return 0;
+
+// A function to implement bubble sort
+void bubbleSort(int arr[], int n)
+{
+int i, j;
+for (i = 0; i < n-1; i++)	
+
+	// Last i elements are already in place
+	for (j = 0; j < n-i-1; j++)
+		if (arr[j] > arr[j+1])
+			swap(&arr[j], &arr[j+1]);
 }
- 
-void enqueue(struct queue *q, int val){
-    if(isFull(q)){
-        printf("This Queue is full\n");
-    }
-    else{
-        q->r++;
-        q->arr[q->r] = val;
-        printf("Enqued element: %d\n", val);
-    }
+
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i=0; i < size; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
 }
- 
-int dequeue(struct queue *q){
-    int a = -1;
-    if(isEmpty(q)){
-        printf("This Queue is empty\n");
-    }
-    else{
-        q->f++;
-        a = q->arr[q->f]; 
-    }
-    return a;
-}
- 
-int main(){
-    struct queue q;
-    q.size = 10;
-    q.f = q.r = 0;
-    q.arr = (int*) malloc(q.size*sizeof(int));
-    
-    // Enqueue few elements
-    enqueue(&q, 12);
-    enqueue(&q, 15);
-    enqueue(&q, 1); 
-    enqueue(&q, 12);
-    enqueue(&q, 15);
-    enqueue(&q, 1); 
-    enqueue(&q, 12);
-    enqueue(&q, 15);
-    enqueue(&q, 1); 
-    printf("Dequeuing element %d\n", dequeue(&q));
-    printf("Dequeuing element %d\n", dequeue(&q));
-    printf("Dequeuing element %d\n", dequeue(&q)); 
-    enqueue(&q, 45);
-    enqueue(&q, 45);
-    enqueue(&q, 45);
- 
-    if(isEmpty(&q)){
-        printf("Queue is empty\n");
-    }
-    if(isFull(&q)){
-        printf("Queue is full\n");
-    }
-    
-    return 0;
+
+// Driver program to test above functions
+int main()
+{
+	int arr[] = {64, 34, 25, 12, 22, 11, 90};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	bubbleSort(arr, n);
+	printf("Sorted array: \n");
+	printArray(arr, n);
+	return 0;
 }
