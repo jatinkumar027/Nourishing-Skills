@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 void print_array(int arr[],int n){
     for(int i=0; i<n; i++){
@@ -8,7 +9,8 @@ void print_array(int arr[],int n){
 
 void merge(int array[], int low, int mid, int high, int n){
     int i, j, k;
-    int merged[n]; // Dynamic array is the proper way
+   // int merged[n]; // Dynamic array is the proper way
+    int * merged = (int *) malloc(n * sizeof(int));
     i = low; j = mid + 1; k = low;
 
     while(i<=mid && j<=high){
