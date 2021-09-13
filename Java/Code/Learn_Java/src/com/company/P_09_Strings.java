@@ -2,7 +2,7 @@ package com.company;
 import java.util.Scanner;
 public class P_09_Strings {
     public static void main(String[] args) {
-        // String name = new String("Harry");
+        // String name = new String("Jatin");
         // String name = "Harry";
         // System.out.print("The name is: ");
         // System.out.print(name);
