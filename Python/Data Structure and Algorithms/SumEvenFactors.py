@@ -22,10 +22,10 @@ def sum_even_factors( n):
 #sum_even_factors(n)=>function call
 
 #Test case 1:
-print(sum_even_factors(18))
+print("The sum of even factors is ",sum_even_factors(18))
 
 #Test case 2:
-print(sum_even_factors(35))
+print("The sum of even factors is ",sum_even_factors(35))
 
 #Test case 3:
-print(sum_even_factors(20))
+print("The sum of even factors is ",sum_even_factors(20))
