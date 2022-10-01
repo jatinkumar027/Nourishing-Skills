@@ -30,5 +30,14 @@ def merge(left, right):
 
 array1 = [5, 3, 6, 2, 4, 1, 6, 7, 4, 3, 1]
 array2 = [34, 65, 23, 87, 53, 76]
+print("unsorted array ")
+print(array1)
+
+print("sorted array ")
 print(mergesort(array1))
+
+print("unsorted array ")
+print(array2)
+
+print("sorted array")
 print(mergesort(array2))
