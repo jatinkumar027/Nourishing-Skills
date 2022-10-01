@@ -21,7 +21,7 @@ def unCommonWords(str1, str2):
 # function to run test cases
 def tests():
     # wrinting the test cases
-    test1 = ["Hacktober comes in October", "Contribte in Hacktober during October"]
+    test1 = ["Hacktober comes in October", "Contribute in Hacktober during October"]
     test2 = ["Hello There", "Hello World is everyone's first program"]
 
     # running test case 1
