@@ -14,7 +14,7 @@ def tests():
 
     print("Running tests...")
 
-    uncommon(test1,test1)
+    print(uncommon(test1,test2))
     
 
 tests()
