@@ -6,6 +6,9 @@ def uncommon(test1,test2):
     for i in test1:
         if i not in test2:
             test3.append(i)
+    for i in test2:
+        if i not in test1:
+            test3.append(i)
     return test3
 
 def tests():
