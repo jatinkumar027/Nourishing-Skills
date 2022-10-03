@@ -13,4 +13,4 @@ def prime_factors(n):
         rstr += f'({x}**{final.count(x)})' if final.count(x) > 1 else f'({x})'
     return rstr
 
-#Function that decomposes number into their base multiplicants. Usefull for simplifications of square roots etc.
+#Function that decomposes number into their base products. Usefull for simplifications of square roots etc.
